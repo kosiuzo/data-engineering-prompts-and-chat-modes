@@ -1,0 +1,306 @@
+{
+  "metadata": {
+    "title": "Awesome Copilot: Data Engineering Edition",
+    "description": "A comprehensive collection of custom Prompts, Chat Modes, Instructions, and Analytics Pattern blueprints for GitHub Copilot, specifically designed for data engineering tasks.",
+    "version": "1.0.0",
+    "last_updated": "2025-01-27",
+    "total_assets": 64,
+    "categories": {
+      "prompts": 30,
+      "chatmodes": 10,
+      "instructions": 8,
+      "patterns": 15,
+      "scripts": 1
+    }
+  },
+  "prompts": {
+    "env-setup": {
+      "title": "Environment Setup Assistant",
+      "intent": "Automate the setup of a local data engineering dev environment.",
+      "inputs": ["project_name", "python_version"],
+      "category": "Environment & Setup",
+      "file": "prompts/de/env-setup.prompt.md"
+    },
+    "star-schema-designer": {
+      "title": "Star Schema Designer",
+      "intent": "Identify facts and dimensions and design a 3NF or star schema for a dataset.",
+      "inputs": ["business_domain"],
+      "category": "Data Modeling",
+      "file": "prompts/de/star-schema-designer.prompt.md"
+    },
+    "airflow-dag-generator": {
+      "title": "Airflow DAG Generator",
+      "intent": "Create a basic Airflow DAG Python code with given tasks and dependencies.",
+      "inputs": ["dag_name", "tasks[]"],
+      "category": "ETL & Pipelines",
+      "file": "prompts/de/airflow-dag-generator.prompt.md"
+    },
+    "dbt-model-generator": {
+      "title": "dbt Model Generator",
+      "intent": "Generate a dbt model with proper configuration, tests, and documentation.",
+      "inputs": ["model_name", "source_table", "business_logic"],
+      "category": "ETL & Pipelines",
+      "file": "prompts/de/dbt-model-generator.prompt.md"
+    },
+    "data-quality-checks": {
+      "title": "Data Quality Validation",
+      "intent": "Create comprehensive data quality checks and validation rules for datasets.",
+      "inputs": ["table_name", "primary_key", "critical_columns[]"],
+      "category": "Data Quality",
+      "file": "prompts/de/data-quality-checks.prompt.md"
+    },
+    "query-optimizer": {
+      "title": "SQL Query Optimizer",
+      "intent": "Analyze and optimize SQL queries for better performance and cost efficiency.",
+      "inputs": ["query", "database_type"],
+      "category": "Performance & Optimization",
+      "file": "prompts/de/query-optimizer.prompt.md"
+    },
+    "snowflake-optimizer": {
+      "title": "Snowflake Performance Tuning",
+      "intent": "Optimize Snowflake queries and warehouse configuration for cost and performance.",
+      "inputs": ["query", "warehouse_size"],
+      "category": "Performance & Optimization",
+      "file": "prompts/de/snowflake-optimizer.prompt.md"
+    },
+    "spark-etl-builder": {
+      "title": "Apache Spark ETL Pipeline",
+      "intent": "Generate Apache Spark ETL pipeline code for data processing and transformation.",
+      "inputs": ["source_format", "target_format", "transformations[]"],
+      "category": "ETL & Pipelines",
+      "file": "prompts/de/spark-etl-builder.prompt.md"
+    },
+    "kafka-stream-processor": {
+      "title": "Kafka Stream Processing",
+      "intent": "Create Kafka stream processing pipeline for real-time data processing.",
+      "inputs": ["input_topic", "output_topic", "processing_logic"],
+      "category": "ETL & Pipelines",
+      "file": "prompts/de/kafka-stream-processor.prompt.md"
+    },
+    "data-pipeline-tester": {
+      "title": "Pipeline Testing Framework",
+      "intent": "Create comprehensive testing framework for data pipelines including unit, integration, and data quality tests.",
+      "inputs": ["pipeline_type", "data_sources[]"],
+      "category": "Data Quality",
+      "file": "prompts/de/data-pipeline-tester.prompt.md"
+    },
+    "anomaly-detection": {
+      "title": "Anomaly Detection Setup",
+      "intent": "Set up anomaly detection for time series data and metrics monitoring.",
+      "inputs": ["data_source", "metric_columns[]"],
+      "category": "Data Quality",
+      "file": "prompts/de/anomaly-detection.prompt.md"
+    },
+    "pii-detection": {
+      "title": "PII Detection and Masking",
+      "intent": "Implement PII detection, classification, and masking strategies for data privacy compliance.",
+      "inputs": ["data_source", "pii_types[]"],
+      "category": "Security & Governance",
+      "file": "prompts/de/pii-detection.prompt.md"
+    }
+  },
+  "chatmodes": {
+    "analytics-architect": {
+      "name": "Analytics Patterns Architect",
+      "description": "Design and review canonical analytics tables and pipelines (funnels, cohorts, LTV, SCD2).",
+      "capabilities": ["pattern selection", "schema design", "SQL skeletons", "idempotency & tests", "backfill plans"],
+      "file": "chatmodes/de/analytics-architect.chatmode.md"
+    },
+    "experimentation-steward": {
+      "name": "Experimentation Data Steward",
+      "description": "Expert in A/B testing data – designs experiment metrics, ensures valid analysis (CUPED, SRM checks).",
+      "capabilities": ["bucketing strategies", "variance reduction (CUPED)", "guardrail metrics", "statistical validation"],
+      "file": "chatmodes/de/experimentation-steward.chatmode.md"
+    },
+    "cohort-retention-coach": {
+      "name": "Cohort & Retention Coach",
+      "description": "Helps build cohort analyses and retention/churn metrics with statistical rigor.",
+      "capabilities": ["cohort grouping", "retention curve computation", "churn analysis", "survivor bias checks"],
+      "file": "chatmodes/de/cohort-retention-coach.chatmode.md"
+    },
+    "attribution-planner": {
+      "name": "Attribution Planner",
+      "description": "Advises on multi-touch attribution models for marketing analytics.",
+      "capabilities": ["attribution model selection", "channel touchpoint analysis", "path pruning", "time-decay weighting"],
+      "file": "chatmodes/de/attribution-planner.chatmode.md"
+    },
+    "batch-pipeline-orchestrator": {
+      "name": "Batch Pipeline Orchestrator",
+      "description": "Expert in batch data pipeline design, scheduling, and orchestration using Airflow, Prefect, or similar tools.",
+      "capabilities": ["dag design", "dependency management", "error handling", "monitoring setup", "resource optimization"],
+      "file": "chatmodes/de/batch-pipeline-orchestrator.chatmode.md"
+    },
+    "streaming-data-specialist": {
+      "name": "Streaming Data Specialist",
+      "description": "Expert in real-time data processing, stream analytics, and event-driven architectures.",
+      "capabilities": ["stream processing", "event sourcing", "watermarking", "exactly-once processing", "backpressure handling"],
+      "file": "chatmodes/de/streaming-data-specialist.chatmode.md"
+    },
+    "data-quality-sentinel": {
+      "name": "Data Quality Sentinel",
+      "description": "Guardian of data quality, implementing comprehensive testing, monitoring, and validation frameworks.",
+      "capabilities": ["data profiling", "quality metrics", "anomaly detection", "test automation", "governance policies"],
+      "file": "chatmodes/de/data-quality-sentinel.chatmode.md"
+    },
+    "warehouse-optimizer": {
+      "name": "Warehouse Optimizer",
+      "description": "Expert in data warehouse performance tuning, cost optimization, and query efficiency.",
+      "capabilities": ["query optimization", "indexing strategies", "partitioning", "cost analysis", "performance monitoring"],
+      "file": "chatmodes/de/warehouse-optimizer.chatmode.md"
+    },
+    "infrastructure-engineer": {
+      "name": "Infrastructure Engineer",
+      "description": "Expert in data infrastructure, cloud platforms, and DevOps practices for data engineering.",
+      "capabilities": ["infrastructure design", "cloud architecture", "containerization", "scaling strategies", "security hardening"],
+      "file": "chatmodes/de/infrastructure-engineer.chatmode.md"
+    },
+    "devops-data-engineer": {
+      "name": "DevOps Data Engineer",
+      "description": "Bridges development and operations for data engineering, focusing on CI/CD, automation, and reliability.",
+      "capabilities": ["ci/cd pipelines", "automation", "deployment strategies", "reliability engineering", "incident response"],
+      "file": "chatmodes/de/devops-data-engineer.chatmode.md"
+    }
+  },
+  "instructions": {
+    "de-analytics-patterns": {
+      "name": "Analytics Patterns SQL & Modeling Guide",
+      "globs": ["models/**/*.sql", "snapshots/**/*.sql", "models/**/*.yml"],
+      "file": "instructions/de/de-analytics-patterns.instructions.md"
+    },
+    "de-sql-style": {
+      "name": "SQL Style Guide for DE",
+      "globs": ["**/*.sql"],
+      "file": "instructions/de/de-sql-style.instructions.md"
+    },
+    "de-orchestration": {
+      "name": "Orchestration Best Practices",
+      "globs": ["dags/**/*.py", "pipelines/**/*.py"],
+      "file": "instructions/de/de-orchestration.instructions.md"
+    },
+    "de-dbt-conventions": {
+      "name": "dbt Conventions and Best Practices",
+      "globs": ["models/**/*.sql", "models/**/*.yml", "macros/**/*.sql", "tests/**/*.sql"],
+      "file": "instructions/de/de-dbt-conventions.instructions.md"
+    },
+    "de-data-quality": {
+      "name": "Data Quality Testing Standards",
+      "globs": ["tests/**/*.sql", "models/**/*.yml", "**/*test*.sql"],
+      "file": "instructions/de/de-data-quality.instructions.md"
+    },
+    "de-security": {
+      "name": "Data Security Best Practices",
+      "globs": ["**/*.py", "**/*.sql", "**/*.yml", "**/*.yaml"],
+      "file": "instructions/de/de-security.instructions.md"
+    },
+    "de-testing-framework": {
+      "name": "Testing Framework Guidelines",
+      "globs": ["tests/**/*.py", "tests/**/*.sql", "**/*test*.py", "**/*test*.sql"],
+      "file": "instructions/de/de-testing-framework.instructions.md"
+    },
+    "de-privacy": {
+      "name": "Privacy and PII Handling",
+      "globs": ["**/*.py", "**/*.sql", "**/*.yml", "**/*.yaml"],
+      "file": "instructions/de/de-privacy.instructions.md"
+    }
+  },
+  "patterns": {
+    "funnel-analysis": {
+      "title": "Funnel Analysis Builder",
+      "intent": "Generate a robust, idempotent funnel conversion table with clear step logic and tests.",
+      "inputs": ["events_table", "user_key", "steps", "lookback_window", "strict_ordering"],
+      "file": "patterns/pattern-funnel-analysis.prompt.md"
+    },
+    "cumulative-table": {
+      "title": "Cumulative Fact Table (Daily Accrual)",
+      "intent": "Produce a daily cumulative metrics table (rolling sum) with restatement-safe incremental logic.",
+      "inputs": ["base_fact", "date_key", "entity_key", "accrual_metric", "backfill_days"],
+      "file": "patterns/pattern-cumulative-table.prompt.md"
+    },
+    "scd2-idempotent": {
+      "title": "Idempotent SCD Type 2 History",
+      "intent": "Maintain a clean Slowly Changing Dimension Type 2 table with deterministic merges and no duplicate active records.",
+      "inputs": ["src_table", "business_key", "change_cols", "change_ts", "late_arrival_window"],
+      "file": "patterns/pattern-scd2-idempotent.prompt.md"
+    },
+    "sessionization": {
+      "title": "Sessionization (User Session Identification)",
+      "intent": "Group event streams into sessions given an inactivity timeout, handling overlapping sessions and bots.",
+      "inputs": ["events_table", "user_key", "event_ts", "session_timeout_minutes"],
+      "file": "patterns/pattern-sessionization.prompt.md"
+    },
+    "cohort-analysis": {
+      "title": "Cohort Analysis Generator",
+      "intent": "Create cohort tables (e.g., monthly signup cohorts) and compute retention over time for each cohort.",
+      "inputs": ["base_users", "user_id", "signup_date", "activity_table", "activity_date", "cohort_grain"],
+      "file": "patterns/pattern-cohort-analysis.prompt.md"
+    },
+    "retention-churn": {
+      "title": "Retention & Churn Metrics",
+      "intent": "Compute key retention metrics (e.g., 7-day, 28-day retention) and churn rates, while avoiding survivor bias.",
+      "inputs": ["activity_table", "user_id", "base_date", "retention_days"],
+      "file": "patterns/pattern-retention-churn.prompt.md"
+    },
+    "customer-ltv": {
+      "title": "Customer Lifetime Value (LTV) Estimator",
+      "intent": "Compute customer lifetime value based on historical purchase data, optionally considering contribution margin and churn.",
+      "inputs": ["orders_table", "customer_id", "order_date", "order_amount", "margin_percent"],
+      "file": "patterns/pattern-customer-ltv.prompt.md"
+    },
+    "attribution": {
+      "title": "Marketing Attribution Model",
+      "intent": "Distribute conversion credit across marketing touchpoints (first-touch, last-touch, linear, or time-decay models).",
+      "inputs": ["touchpoints_table", "user_id", "touchpoint_time", "channel", "conversion_table", "conversion_time", "attribution_model"],
+      "file": "patterns/pattern-attribution.prompt.md"
+    },
+    "ab-testing": {
+      "title": "A/B Testing Analysis",
+      "intent": "Design and analyze A/B tests with proper statistical rigor, including CUPED and guardrail metrics.",
+      "inputs": ["experiment_table", "user_id", "variant", "primary_metric", "guardrail_metrics[]", "pre_experiment_data"],
+      "file": "patterns/pattern-ab-testing.prompt.md"
+    },
+    "time-series": {
+      "title": "Time Series Analysis",
+      "intent": "Analyze time series data for trends, seasonality, and forecasting with proper statistical methods.",
+      "inputs": ["time_series_table", "time_column", "value_column", "group_columns[]", "analysis_type"],
+      "file": "patterns/pattern-time-series.prompt.md"
+    },
+    "segmentation": {
+      "title": "Customer Segmentation",
+      "intent": "Create customer segments based on behavior, demographics, or value using clustering and RFM analysis.",
+      "inputs": ["customer_table", "customer_id", "behavior_metrics[]", "segmentation_method", "num_segments"],
+      "file": "patterns/pattern-segmentation.prompt.md"
+    },
+    "recommendation": {
+      "title": "Recommendation System Data Prep",
+      "intent": "Prepare data for recommendation systems including user-item interactions, feature engineering, and evaluation metrics.",
+      "inputs": ["interactions_table", "user_id", "item_id", "rating_column", "item_features_table", "user_features_table"],
+      "file": "patterns/pattern-recommendation.prompt.md"
+    },
+    "data-validation": {
+      "title": "Data Validation Framework",
+      "intent": "Create comprehensive data validation framework with automated tests, monitoring, and alerting.",
+      "inputs": ["target_table", "validation_rules[]", "alert_thresholds", "validation_frequency"],
+      "file": "patterns/pattern-data-validation.prompt.md"
+    },
+    "anomaly-detection": {
+      "title": "Anomaly Detection Pattern",
+      "intent": "Implement anomaly detection for time series data and metrics using statistical and machine learning methods.",
+      "inputs": ["time_series_table", "time_column", "value_column", "detection_method", "sensitivity", "group_columns[]"],
+      "file": "patterns/pattern-anomaly-detection.prompt.md"
+    },
+    "data-lineage": {
+      "title": "Data Lineage Tracking",
+      "intent": "Track data lineage and dependencies across data pipelines, transformations, and systems.",
+      "inputs": ["source_tables[]", "target_tables[]", "transformation_logic", "lineage_type", "metadata_schema"],
+      "file": "patterns/pattern-data-lineage.prompt.md"
+    }
+  },
+  "scripts": {
+    "validate": {
+      "name": "Validation Script",
+      "description": "Script to lint file naming and front-matter metadata for consistency.",
+      "file": "scripts/validate.js",
+      "type": "node"
+    }
+  }
+}

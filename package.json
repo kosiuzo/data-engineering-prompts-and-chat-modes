@@ -1,0 +1,16 @@
+{
+  "name": "data-engineering-prompts-and-chat-modes",
+  "version": "1.0.0",
+  "description": "**Awesome Copilot: Data Engineering Edition** is a ready-to-use collection of custom Prompts, Chat Modes, Instructions, and Analytics Pattern blueprints for GitHub Copilot. It supercharges Copilot to assist with data engineering tasks: designing pipelines, modeling data, writing SQL, debugging ETL, ensuring data quality, and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

@@ -170,6 +170,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## References
 
-- [Data Engineer's Handbook](https://www.dataengineeringhandbook.com/)
+- [Data Engineer's Handbook](https://github.com/DataExpert-io/data-engineer-handbook)
 - [Awesome Copilot](https://github.com/github/awesome-copilot)
 - [Awesome Copilot Chat Modes](https://github.com/dfinke/awesome-copilot-chatmodes)
